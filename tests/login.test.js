@@ -77,11 +77,11 @@ test.describe('Login Tests', () => {
   await page.waitForSelector('text=Logout');
   await page.click('text=Logout');
 
-  // ✅ Verifikasi bahwa kita kembali ke landing page, bukan login
+  // ✅ Verifikasi back to landing page
   await page.waitForURL(/#\/$/, { timeout: 15000 });
   await expect(page.locator('text=Selamat Datang')).toBeVisible();
 
-  // ✅ Tambahan verifikasi: tombol login muncul kembali
+  // ✅ Verifikasi: tombol login muncul kembali
   await expect(page.locator('.login-link')).toBeVisible();
 });
 });
